@@ -7,3 +7,9 @@ const functions = require("firebase-functions");
 //   functions.logger.info("Hello logs!", {structuredData: true});
 //   response.send("Hello from Firebase!");
 // });
+
+exports.handleUserChange = functions.https.onRequest((request, response) => {
+  functions.logger.info("Event triggered");
+  functions.logger.write(request.body);
+  response.send(request.body);
+});
